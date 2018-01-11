@@ -1,0 +1,37 @@
+<section class="home-services">
+  <div class="container">
+    <h3 class="text-center font-weight-bold mb24">Our Services</h3>
+    <div class="row align-items-center">
+      {{ range $index, $page := (where .Site.RegularPages "Type" "services").ByWeight }}
+      <div class="service col-md-4 mb-5 mb-md-0">
+        <div class="row">
+          <figure class="mx-auto">
+            <!-- <a href="{{ .Permalink }}" title="{{ .Title }}"> -->
+            <a href="{{ .CurrentSection.Permalink }}" title="{{ .Title }}">
+              <img src="{{ .Params.Image }}" alt="{{ .Title }}" title="{{ .Title }}">
+            </a>
+          </figure>
+        </div>
+        <div class="row">
+          <div class="mx-auto text-center">
+            <p class="font-weight-bold">{{ .Title }}</p>
+            <!-- <div class="project-description mb-2 mb-md-3">{{ printf "%s" .Params.description | markdownify }}</div> -->
+          </div>
+        </div>
+        <div class="row">
+          <div class="mx16 text-center">
+            <p>{{ .Params.shortDescription }}</p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="mt16 d-flex mx-auto">
+            <a class="btn btn-primary" href="{{ .CurrentSection.Permalink }}">
+              <span class="align-middle">Learn More</span>
+            </a>
+          </div>
+        </div>
+      </div>
+      {{ end }}
+    </div>
+  </div>
+</section>

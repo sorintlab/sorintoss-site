@@ -1,0 +1,448 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+
+$theme-colors: (
+  "primary": #00abee,
+  "secondary": #fabf07,
+  "danger": #ff4136,
+);
+
+@import "node_modules/bootstrap/scss/bootstrap";
+
+body {
+  overflow-x: hidden;
+  color: #666;
+  font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  padding-top: 71px;
+}
+
+a,
+a:hover,
+a.active {
+  text-decoration: none;
+  outline: 0;
+  color: theme-color("primary");
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+.navbar {
+  padding-top: 0.5rem;
+  padding-right: 0;
+  padding-bottom: 0.5rem;
+  padding-left: 0;
+}
+
+.navbar-wrapper {
+  border-bottom: 0.1px solid #CCCCCC;
+}
+
+.navbar .social a,
+.navbar .social a:focus,
+.navbar .social a.active,
+.navbar .social a:hover {
+  color: #444;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+.navbar .social a:hover {
+  color: #000;
+}
+
+
+.brand-img {
+  height: 40px;
+  margin-top: 7px;
+}
+
+@media (max-width: map-get($grid-breakpoints, sm)) {
+  .brand-img {
+    height: 40px;
+  }
+}
+
+footer {
+  padding: 25px 0;
+  color: #444;
+  background-color: #f7f7f7;
+}
+
+footer a,
+footer a:focus,
+footer a.active {
+  color: #444;
+}
+
+footer a:hover {
+  color: #000;
+}
+
+footer .lead {
+  font-size: 1.1rem;
+}
+
+footer .end {
+  text-align: center;
+}
+
+.home-about {
+  color: #ffffff;
+  background-color: theme-color("primary");
+  padding: 60px 0 60px 0;
+}
+
+.home-about .title {
+  font-size: 4rem;
+}
+
+@media (max-width: map-get($grid-breakpoints, sm)) {
+  .home-about .title {
+    font-size: 2rem;
+  }
+}
+
+.home-about .subtitle {
+  font-size: 1.5rem;
+}
+
+.home-projects {
+  background-color: #ffffff;
+  padding: 30px 0;
+}
+
+.home-services {
+  background-color: #f7f7f7;
+  padding: 30px 0;
+}
+
+.home-services .service img {
+  height: 80px;
+  width: auto;
+}
+
+.home-services .service:hover img {
+  transform: scale(1.1, 1.1);
+  transition: all 0.2s ease-out;
+}
+
+.home-partners {
+  background-color: #ffffff;
+  padding: 30px 0;
+  padding: 30px 0;
+}
+
+.home-partners .item {
+  margin-left: 20px;
+  margin-right: 20px;
+  height: 100px;
+}
+
+.home-partners .item img {
+  height: 100px;
+  object-fit: contain;
+}
+
+.icon-list ul {
+  list-style: none;
+  text-indent: -37px;
+  margin-bottom: 0px;
+}
+
+.icon-list ul li::before {
+  background-image: url("/img/icon-circle-check.svg");
+  background-repeat: no-repeat;
+  background-size: 100%;
+  content: "";
+  display: inline-block;
+  margin: -3px 11px 0 0;
+  height: 22px;
+  width: 22px;
+  vertical-align: middle;
+
+}
+
+.icon-list ul li {
+  margin-bottom: 10px;
+}
+
+.projects-support .box {
+  text-align: center;
+}
+
+.projects-support img {
+  width: 28px;
+  height: auto;
+}
+
+.projects-support .box .icon {
+  display: inline-block;
+  width: 80px;
+  height: 80px;
+  color: #fff;
+  line-height: 80px;
+  border-radius: 40px;
+  border: solid 1px #fff;
+  font-size: 20px;
+  color: theme-color("primary");
+  border-color: theme-color("primary");
+  transition: all 0.2s ease-out;
+}
+
+.projects-support .box:hover .icon {
+  transform: scale(1.1, 1.1);
+}
+
+.partners .partner .img-container {
+  object-fit: contain;
+}
+
+.partners .partner img {
+  height: 100px;
+  object-fit: contain;
+}
+
+.post-date {
+  text-transform: uppercase;
+  color: #aaa;
+  border-bottom: 1px solid #eee;
+  padding: 0.4em 0;
+  font-size: 0.8rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+}
+
+.post {
+  padding-bottom: 2em;
+}
+
+.post-header {
+  margin-bottom: 16px;
+}
+
+.post-title {
+  font-size: 2rem;
+  color: theme-color("primary");
+  margin: 0.4em 0;
+  font-weight: bold;
+}
+
+.post-title:hover{
+  text-decoration: none;
+}
+
+.post-avatar {
+  border-radius: 50px;
+  float: right;
+  margin-left: 1em;
+}
+
+.post-description {
+  color: #333;
+  line-height: 1.35em;
+}
+
+.post-intro {
+  color: #999;
+  font-size: 0.9rem;
+  margin: 5px 0;
+}
+
+.post-meta {
+  color: #999;
+  font-size: 90%;
+  margin: 5px 0;
+}
+
+.post-category {
+  margin: 0 0.1em;
+  padding: 0.3em 1em;
+  color: #fff;
+  background: #999;
+  font-size: 80%;
+}
+
+.post-images {
+  margin: 1em 0;
+}
+.post-image-meta {
+  margin-top: -3.5em;
+  margin-left: 1em;
+  color: #fff;
+  text-shadow: 0 1px 1px #333;
+}
+
+ul.tag-cloud {
+  list-style: none;
+  padding-left: 0;
+}
+
+ul.tag-cloud li {
+  display: inline-block;
+}
+
+ul.tag-cloud li a {
+  display: inline-block;
+  padding: 5px;
+  border: solid 1px #eeeeee;
+  border-radius: 0;
+  margin: 5px 5px 5px 0;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-weight: 700;
+  font-size: 0.8rem;
+}
+
+
+.share-btn {
+  color: #ffffff;
+  border: none;
+  box-shadow: none;
+  text-align: center;
+  text-decoration: none;
+}
+
+.share-btn:hover {
+  color: #ffffff !important;
+}
+
+.share-btn:active,
+.share-btn:focus {
+  box-shadow: none;
+  color: #e2e2e2;
+  outline: none;
+  top: 2px;
+}
+
+.share-btn.twitter     { background: #55acee; }
+.share-btn.google-plus { background: #dd4b39; }
+.share-btn.facebook    { background: #3B5998; }
+.share-btn.linkedin    { background: #4875B4; }
+.share-btn.stumbleupon { background: #EB4823; }
+.share-btn.pinterest	 { background: #BD081C; }
+.share-btn.reddit      { background: #ff5700; }
+.share-btn.email       { background: #444444; }
+
+.share-btn.twitter:hover     { background: #4c9ad6; }
+.share-btn.google-plus:hover { background: #c64333; }
+.share-btn.facebook:hover    { background: #2f4779; }
+.share-btn.linkedin:hover    { background: #4069a2; }
+.share-btn.stumbleupon:hover { background: #d3401f; }
+.share-btn.pinterest:hover   { background: #AD0000; }
+.share-btn.reddit:hover      { background: #e54e00; }
+.share-btn.email:hover       { background: #363636; }
+
+
+
+
+
+//////
+
+.image-md {
+  max-height: 120px;
+}
+.image-small {
+  max-height: 80px;
+}
+.image-xs {
+  max-height: 50px;
+}
+.image-xxs {
+  max-height: 70px;
+}
+
+.icon-lg {
+  font-size: 80px;
+}
+.icon-sm {
+  font-size: 32px;
+}
+.icon-xs {
+  font-size: 18px;
+}
+
+@media all and (max-width: map-get($grid-breakpoints, md)) {
+  .icon-lg {
+    font-size: 64px;
+  }
+  .icon-sm {
+    font-size: 18px;
+  }
+  .icon-xs {
+    font-size: 16px;
+  }
+}
+
+.slick-slide img {
+  display: block;
+  max-height: 20em;
+}
+
+
+$spaces: (
+8: 8px,
+16: 16px,
+24: 24px,
+32: 32px,
+40: 40px,
+48: 48px,
+56: 56px,
+64: 64px,
+72: 72px,
+80: 80px,
+);
+
+@each $breakpoint in map-keys($grid-breakpoints) {
+  @include media-breakpoint-up($breakpoint) {
+    $infix: breakpoint-infix($breakpoint, $grid-breakpoints);
+
+    $ninfix: $infix;
+    @if $infix != "" {
+      $ninfix: $infix + "-"
+    }
+
+    @each $prop, $abbrev in (margin: m, padding: p) {
+      @each $size, $length in $spaces {
+        .#{$abbrev}#{$ninfix}#{$size} { #{$prop}: $length !important; }
+        .#{$abbrev}t#{$ninfix}#{$size},
+        .#{$abbrev}y#{$ninfix}#{$size} {
+          #{$prop}-top: $length !important;
+        }
+        .#{$abbrev}r#{$ninfix}#{$size},
+        .#{$abbrev}x#{$ninfix}#{$size} {
+          #{$prop}-right: $length !important;
+        }
+        .#{$abbrev}b#{$ninfix}#{$size},
+        .#{$abbrev}y#{$ninfix}#{$size} {
+          #{$prop}-bottom: $length !important;
+        }
+        .#{$abbrev}l#{$ninfix}#{$size},
+        .#{$abbrev}x#{$ninfix}#{$size} {
+          #{$prop}-left: $length !important;
+        }
+      }
+    }
+
+    // Some special margin utils
+    .m#{$infix}-auto { margin: auto !important; }
+    .mt#{$infix}-auto,
+    .my#{$infix}-auto {
+      margin-top: auto !important;
+    }
+    .mr#{$infix}-auto,
+    .mx#{$infix}-auto {
+      margin-right: auto !important;
+    }
+    .mb#{$infix}-auto,
+    .my#{$infix}-auto {
+      margin-bottom: auto !important;
+    }
+    .ml#{$infix}-auto,
+    .mx#{$infix}-auto {
+      margin-left: auto !important;
+    }
+  }
+}

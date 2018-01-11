@@ -1,0 +1,29 @@
+{{ $currentPage := . }}
+<div class="navbar-wrapper fixed-top bg-white">
+  <div class="container">
+    <nav class="navbar navbar-expand-lg navbar-light">
+      <a class="navbar-brand" href="{{ .Site.BaseURL }}">
+        <img src="/img/sorintoss-logo.svg" class="brand-img" alt="{{ .Title }}" title="{{ .Title }}">
+      </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          {{ range .Site.Menus.main }}
+          <li class="nav-item {{ if eq $currentPage.Section ( lower .Name ) }}active{{end}}">
+            <a class="nav-link" href="{{ .URL }}">{{ .Name | markdownify }}</a>
+          </li>
+          {{ end }}
+        </ul>
+        <div class="navbar-nav">
+          <div class="social">
+            <a class="col" href="{{ .Site.Params.github }}" target="_blank"><i class="icon icon-sm fab fa-github"></i></a>
+            <a class="col" href="{{ .Site.Params.twitter }}" target="_blank"><i class="icon icon-sm fab fa-twitter"></i></a>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </div>
+</div>

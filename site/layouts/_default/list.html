@@ -1,0 +1,80 @@
+{{ define "main" }}
+<div class="posts container pt40">
+  <div class="row">
+    <div class="col-md-9">
+      {{ $paginator := .Paginate (where .Data.Pages "Type" "blog") }}
+      {{ range $paginator.Pages }}
+      <section class="post">
+        <div class="row">
+          <div class="col-md-4">
+            <a href="{{ .Permalink }}">
+              {{ if .Params.banner }}
+              <img src="{{ .Params.banner }}" class="img-responsive" alt="">
+              {{ else }}
+              <img src="/img/generic-post.svg" class="img-fluid" alt="">
+              {{ end }}
+            </a>
+          </div>
+          <div class="col-md-8">
+            <h2><a href="{{ .Permalink }}">{{ .Title }}</a></h2>
+            <div class="clearfix">
+              <p class="author-category">
+                {{ if isset .Params "author" }}
+                {{ "By" }} <a href="#">{{ .Params.author }}</a>
+                {{ end }}
+                {{ if isset .Params "categories" }}
+                {{ if gt (len .Params.categories) 0 }}
+                in <a href="{{ $.Site.BaseURL }}categories/{{ index .Params.categories 0 | urlize | lower }}">{{ index .Params.categories 0 }}</a>
+                {{ end }}
+                {{ end }}
+              </p>
+              <p class="date-comments">
+                <a href="{{ .Permalink }}"><i class="fa fa-calendar-o"></i> {{ .Date.Format .Site.Params.dateFormat }}</a>
+              </p>
+            </div>
+            <p class="post-intro">{{ .Summary }}</p>
+            <div class="">
+              <a href="{{ .Permalink }}">Continue Reading…</a>
+            </div>
+          </div>
+        </div>
+      </section>
+      {{ end }}
+    </div>
+    <div class="col-md-3">
+
+      <div class="mb32">
+        <div class="">
+          <h3 class="">Categories</h3>
+        </div>
+
+        <div class="">
+          <ul class="nav flex-column">
+            {{ range $name, $items := .Site.Taxonomies.categories }}
+            <li class="nav-item">
+              <a class="nav-link" href="{{ $.Site.BaseURL }}categories/{{ $name | urlize | lower }}">{{ $name }} ({{ len $items }})</a>
+            </li>
+            {{ end }}
+          </ul>
+        </div>
+
+      </div>
+
+      <div class="mb32">
+        <div class="">
+          <h3 class="">Tags</h3>
+        </div>
+
+        <div class="">
+          <ul class="tag-cloud">
+            {{ range $name, $items := .Site.Taxonomies.tags }}
+            <li><a href="{{ $.Site.BaseURL }}tags/{{ $name | urlize | lower }}"><i class="fas fa-tags"></i> {{ $name }}</a>
+            </li>
+            {{ end }}
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{{ end }}

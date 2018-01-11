@@ -1,0 +1,57 @@
+{{ define "main" }}
+<section class="services pt40">
+  <div class="container">
+    <h1>{{ .Title }}</h1>
+    <div class="mb80">
+      {{ .Content }}
+    </div>
+
+    {{ range $i, $section := .Paginator.Pages.ByWeight }}
+    {{ $even := modBool $i 2 }}
+    <div class="row mb40">
+      <div class="col-md-6 justify-content-center align-items-center d-flex d-md-none {{ if not $even }}d-md-flex{{ end }}">
+        <img src="{{ .Params.Image }}" class="w-50" alt="{{ .Title }}" title="{{ .Title }}">
+      </div>
+      <div class="service col-md-6">
+        <section class="">
+          <h2 class="">{{ .Title }}</h2>
+          <div class="mb40">
+            {{ .Params.description }}
+          </div>
+          <div class="row">
+            <div class="col-md-6 icon-list">
+              <ul>
+                {{ range $i, $el := .Params.list_left }}
+                <li class="">
+                  {{ . | markdownify }}
+                </li>
+                {{ end }}
+              </ul>
+            </div>
+            <div class="col-md-6 icon-list">
+              <ul>
+                {{ range $i, $el := .Params.list_right }}
+                <li class="">
+                  {{ . | markdownify }}
+                </li>
+                {{ end }}
+              </ul>
+            </div>
+          </div>
+        <div class="row">
+          <div class="mt16 d-flex mx-auto">
+            <a class="btn btn-primary" href="/contact">
+              <span class="align-middle">Contact us</span>
+            </a>
+          </div>
+        </div>
+      </section>
+    </div>
+    <div class="col-md-6 justify-content-center align-items-center d-none {{ if $even }}d-md-flex{{ end }}">
+      <img src="{{ .Params.Image }}" class="w-50" alt="{{ .Title }}" title="{{ .Title }}">
+    </div>
+  </div>
+  {{ end }}
+</div>
+</section>
+{{ end }}

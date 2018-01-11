@@ -1,0 +1,17 @@
+<section class="home-partners">
+  <div class="container">
+    <h3 class="text-center font-weight-bold mb24">Our Partners and Competences</h3>
+    <div class="owl-carousel owl-theme">
+      {{ range $index, $page := (union ( where .Site.Pages "Type" "partner" ) ( where .Site.Pages "Type" "competence" )).ByWeight}}
+      {{ if not ( eq .File.LogicalName "_index.md" ) }}
+      <div class="item">
+        <!-- <a href="{{ .Permalink }}" title="{{ .Title }}"> -->
+        <a href="{{ .CurrentSection.Permalink }}" title="{{ .Title }}">
+          <img src="{{ .Params.Image }}" alt="{{ .Title }}" title="{{ .Title }}">
+        </a>
+      </div>
+      {{ end }}
+      {{ end }}
+    </div>
+  </div>
+</section>

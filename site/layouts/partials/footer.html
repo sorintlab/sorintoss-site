@@ -1,0 +1,55 @@
+{{ $currentPage := . }}
+<footer id="footer">
+  <div class="container">
+    <div class="row">
+      {{ range ( slice "about" "projects" "services" ) }}
+      {{ with $currentPage.Site.GetPage "section" . }}
+      <div class="col-md-3 col-sm-6 mb-5">
+        <a class="font-weight-bold text-uppercase" href="{{ .Permalink }}">{{ .Title }} ></a>
+        {{ range ( union .Pages .Sections ).ByWeight }}
+        <div class="">
+          {{ if eq .Kind "page" }}
+          <!-- <a href="{{ .Permalink }}">{{ .Title }}</a> -->
+          <a href="{{ .CurrentSection.Permalink }}">{{ .Title }}</a>
+          {{ end }}
+          {{ if eq .Kind "section" }}
+          <!-- <a href="{{ .Permalink }}">{{ .CurrentSection.Title }}</a> -->
+          <a href="{{ .CurrentSection.Permalink }}">{{ .CurrentSection.Title }}</a>
+          {{ end }}
+        </div>
+        {{ end }}
+      </div>
+      {{ end }}
+      {{ end }}
+    </div>
+    <div class="row mb16">
+      <div class="col-md-6 offset-md-3 col-sm-8 offset-sm-2 text-center mb-xs-24">
+        <a href="https://www.sorint.it" target="_self">
+          <img alt="Logo" class="image-xs mb16" src="{{ "img/sorintlab.png" | relURL }}">
+        </a>
+        <!-- <p class="lead mb48 mb-xs-16"> -->
+        <p class="lead mb-xs-16">
+          Sorint.lab S.p.A. • via Zanica 17/a<br> 24050 Grassobbio (BG)
+        </p>
+      </div>
+      <div class="col-md-2 text-center my-auto">
+        <a class="btn btn-secondary" href="/contact">
+          <span class="align-middle">We're Hiring!</span>
+        </a>
+      </div>
+    </div>
+
+    <div class="row">
+    </div>
+
+    <div class="row end justify-content-between">
+      <div class="col-sm-12 col-md-4">
+        <p>© Copyright {{ dateFormat "2006" now }} Sorint.lab S.p.A.</p>
+      </div>
+
+      <div class="col-sm-12 col-md-4">
+        <a href="mailto:welisten@sorint.it">welisten@sorint.it</a>
+      </div>
+    </div>
+  </div>
+</footer>

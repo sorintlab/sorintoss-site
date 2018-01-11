@@ -1,0 +1,33 @@
+{{ define "main" }}
+<div class="container">
+  <div>
+    <div class="posts">
+      <h1 class="post-date">{{ .Date.Format "02 Jan 2006, 15:04" }}</h1>
+      <div class="mt8 mb8">
+        {{ partial "share-buttons" . }}
+      </div>
+      <section class="post">
+        <header class="post-header">
+          <a href="{{ .Permalink }}" class="post-title">{{ .Title }}</a>
+          <p class="post-meta">
+            {{ with .Params.author }}
+            By <strong class="post-author">{{ . }}</strong>
+            {{ end }}
+            {{ if isset .Params "categories" }}
+            under
+            {{ $baseUrl := .Site.BaseURL }}
+            {{ range .Params.categories }}<a class="post-category post-category-{{ . }}" href="{{ $baseUrl }}/categories/{{ . | urlize }}">{{ . }}</a>{{ end }}
+            {{ end }}
+          </p>
+        </header>
+        <div class="post-description">
+          {{ .Content }}
+        </div>
+      </section>
+    </div>
+    <div class="mt8 mb8">
+      {{ partial "share-buttons" . }}
+    </div>
+  </div>
+</div>
+{{ end }}

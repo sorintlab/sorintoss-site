@@ -1,0 +1,33 @@
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  {{ with .Site.Params.description }}<meta name="description" content="{{ . }}">{{ end }}
+  {{ with .Site.Params.name }}<meta name="author" content="{{ . }}">{{ end }}
+  {{ .Hugo.Generator }}
+  <title>{{ .Site.Title }}</title>
+
+  {{- template "_internal/opengraph.html" . -}}
+  {{- template "_internal/google_news.html" . -}}
+  {{- template "_internal/schema.html" . -}}
+  {{- template "_internal/twitter_cards.html" . -}}
+
+  <link href="{{ "css/fontawesome.css" | relURL }}" rel="stylesheet" type="text/css">
+  <link href="{{ "css/fa-regular.css" | relURL }}" rel="stylesheet" type="text/css">
+  <link href="{{ "css/fa-solid.css" | relURL }}" rel="stylesheet" type="text/css">
+  <link href="{{ "css/fa-brands.css" | relURL }}" rel="stylesheet" type="text/css">
+
+  <link href="{{ "css/owl.carousel.css" | relURL }}" rel="stylesheet" type="text/css">
+  <link href="{{ "css/owl.theme.default.css" | relURL }}" rel="stylesheet" type="text/css">
+
+  <link href="{{ "css/animate.css" | relURL }}" rel="stylesheet" type="text/css">
+
+  <link href="{{ "css/site.css" | relURL }}" rel="stylesheet">
+
+  {{ with .Site.Params.favicon }}
+  <link rel="shortcut icon" type="image/x-icon" href="{{ . | relURL }}">
+  <link rel="icon" type="image/x-icon" href="{{ . | relURL }}">
+  {{ end }}
+
+
+</head>

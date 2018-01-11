@@ -1,0 +1,11 @@
+<!doctype html>
+<html lang="en">
+  {{ partial "head" . }}
+  <body id="page-top" class="index">
+    {{ partial "nav" . }}
+    {{ block "main" . }}{{ end }} 
+    {{ partial "footer" . }} 
+
+    {{ partial "js" . }}
+  </body>
+</html>

@@ -1,0 +1,76 @@
+{{ define "main" }}
+<section class="projects pt40 pb40">
+  <div class="container">
+    <h1>{{ .Title }}</h1>
+    <div class="mb40">
+      {{ .Content }}
+    </div>
+
+    {{ range $i, $page := .Pages }}
+    {{ $even := modBool $i 2 }}
+    <div class="row mb80">
+      <div class="service col-md-6 justify-content-center align-items-center d-md-none {{ if not $even }}d-md-flex{{ end }} ">
+        <figure>
+          <a href="{{ .Permalink }}" title="{{ .Title }}">
+            <img src="{{ .Params.Image }}" class="" alt="{{ .Title }}" title="{{ .Title }}">
+          </a>
+        </figure>
+      </div>
+      <div class="service col-md-6">
+        <section class="">
+          <h2>{{ .Title }}</h2>
+          {{ with .Params.description }}
+          <div class="project-description">{{ . | markdownify }}</div>
+          {{ end }}
+          {{ with .Params.summary }}
+          <div class="project-summary mt16">{{ . | markdownify }}</div>
+          {{ end }}
+          <div class="mt16">
+            <a class="mt8 btn btn-primary" href="{{ .Params.githubURL }}" target="_blank">
+              <i class="icon fab fa-github align-middle mr8"></i>
+              <span class="align-middle">View on GitHub</span>
+            </a>
+            <a class="mt8 btn btn-primary" href="{{ .Params.gitterURL }}" target="_blank">
+              <i class="icon fab fa-gitter align-middle mr8"></i>
+              <span class="align-middle">Get in touch on Gitter</span>
+            </a>
+          </div>
+        </section>
+      </div>
+      <div class="service col-md-6 justify-content-center align-items-center d-none {{ if $even }}d-md-flex{{ end }}">
+        <figure>
+          <a href="{{ .Permalink }}" title="{{ .Title }}">
+            <img src="{{ .Params.Image }}" class="project-img" alt="{{ .Title }}" title="{{ .Title }}">
+          </a>
+        </figure>
+      </div>
+    </div>
+    {{ end }}
+  </div>
+</section>
+<section class="projects-support pt40 pb40">
+  {{ with .Params.Support }}
+  <div class="container">
+    <h1>{{ .title }}</h1>
+    <div class="mb40">
+      {{ .Content }}
+    </div>
+    <div class="row">
+      {{ range .types }}
+      <div class="col-md-4 box">
+        <div class="icon">
+          {{ if .icon }}
+          <i class="fas fa-{{ .icon }}"></i>
+          {{ else if .image }}
+          <img src="{{ .image }}" class="" alt="{{ .title }}" title="{{ .title }}">
+          {{ end }}
+        </div>
+        <h5 class="my16 font-weight-bold text-uppercase">{{ .name }}</h5>
+        <p class="my16">{{ .summary }}</h5>
+        </div>
+        {{ end }}
+      </div>
+    </div>
+    {{ end }}
+  </section>
+  {{ end }}

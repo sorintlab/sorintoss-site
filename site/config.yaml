@@ -1,0 +1,44 @@
+baseURL: https://sorintoss.io/
+languageCode: en-us
+title: Sorint.OSS
+
+blackfriday:
+  hrefTargetBlank: true
+  fractions: false
+
+menu:
+  main:
+    - name: "About"
+      identifier: "about"
+      url: "/about/"
+      weight: 10
+    - name: "Projects"
+      identifier: "projects"
+      url: "/projects/"
+      weight: 20
+    - name: "Services"
+      identifier: "services"
+      url: "/services/"
+      weight: 30
+    - name: "Partners"
+      identifier: "partners"
+      url: "/partners/"
+      weight: 40
+    - name: "Competences"
+      identifier: "partners"
+      url: "/partners/"
+      weight: 40
+    - name: "Blog"
+      identifier: "blog"
+      url: "/blog/"
+      weight: 50
+    - name: "Contact"
+      identifier: "contact"
+      url: "/contact/"
+      weight: 60
+
+params:
+  favicon: /img/favicon.png
+  dateFormat: 02 Jan 2006, 15:04
+  github: https://github.com/sorintlab
+  twitter: https://twitter.com/SorintLab
