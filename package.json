@@ -7,35 +7,39 @@
     "build": "gulp build",
     "build-preview": "gulp build-preview",
     "start": "gulp server",
-    "lint": "eslint src"
+    "lint": "eslint src",
+    "postinstall": "hugo-installer --version otherDependencies.hugo"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "babel-preset-env": "^1.6.1",
-    "babel-register": "^6.11.6",
     "babel-plugin-syntax-object-rest-spread": "^6.13.0",
     "babel-plugin-transform-class-properties": "^6.10.2",
     "babel-plugin-transform-object-assign": "^6.8.0",
     "babel-plugin-transform-object-rest-spread": "^6.8.0",
-    "gulp": "^3.9.1",
+    "babel-preset-env": "^1.7.0",
+    "babel-register": "^6.11.6",
+    "gulp": "^4.0.2",
     "gulp-autoprefixer": "^4.1.0",
     "gulp-concat": "^2.6.1",
     "gulp-minify-css": "^1.2.4",
     "gulp-sass": "^3.1.0",
     "gulp-uglify": "^3.0.0",
-    "standard": "^10.0.3",
-    "hugo-bin": "^0.22.0"
+    "hugo-installer": "^1.0.1",
+    "standard": "^10.0.3"
   },
   "dependencies": {
     "@fortawesome/fontawesome-free-webfonts": "^1.0.3",
     "animate.css": "^3.6.1",
-    "bootstrap": "^4.0.0",
-    "jquery": "^3.3.1",
-    "netlify-cms": "^1.1.0",
+    "bootstrap": "^4.3.1",
+    "browser-sync": "^2.26.7",
+    "jquery": "^3.4.1",
+    "netlify-cms": "^2.9.5",
     "owl.carousel": "^2.2.0",
-    "popper.js": "^1.12.9",
-    "browser-sync": "^2.23.6"
+    "popper.js": "^1.12.9"
+  },
+  "otherDependencies": {
+    "hugo": "0.55.6"
   }
 }
