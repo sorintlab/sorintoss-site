@@ -1,6 +1,6 @@
 [build]
-  command = "npm run build"
+  command = "npm install && npm run build"
   publish = "dist"
 
 [context.deploy-preview]
-command = "npm run build-preview"
+command = "npm install && npm run build-preview"
