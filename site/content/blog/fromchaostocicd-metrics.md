@@ -1,6 +1,6 @@
 ---
 type: blog
-title: 'Metrics yuu need to measure for development process success'
+title: 'Metrics you need to measure for development process success'
 author: "Fabio Seregni"
 date: 2019-07-12T6:00:26.170Z
 rating: '3'
