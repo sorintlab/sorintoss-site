@@ -26,14 +26,15 @@ What are the requirements we tried to satisfy while designing and writing Agola?
 * Support any language, deployment system etc... (just use the right image)
 * Integrate with multiple git providers at the same time: you could add repos from github, gitlab, gitea (and more to come) inside the same agola installation.
 * Use it to manage the full development lifecycle: from build to deploy.
-* Handle complex workflows (that we called **Runs**) with ability to achieve fan-in, fan-out, matrixes etc..., everything containerized to achieve maximum reproducibility.
+* Tasks Workflows (that we called **Runs**) with ability to achieve fan-in, fan-out, matrixes etc..., everything containerized to achieve maximum reproducibility.
 * Git based workflow: the run definition is committed inside the git repository (so everything is tracked and reproducible). A run execution is started by a git action (push, pull-request).
 * Design it with the ability to achieve at most once runs: during a deployment to production we don't want multiple concurrent execution of the deploy...
 * Restartable and reproducible Runs (restart a run from scratch or from failed tasks using the same source commit, variables etc...)
-* User Direct Runs: give every user the power to test their software using the same run definition used when pushing to git/opening a pull request inside the Agola installation with just one command like if they were running tests locally (without requiring a super powerful workstation).
-* Testable "Runs" (what is a CI/CD environment if you cannot test your changes to the Runs definitions?): use the same run definition but use a powerful variables system to access different resources (environments, docker registries etc...).
+* [User Direct Runs](https://agola.io/doc/concepts/user_direct_runs.html): give every user the power to test their software using the same run definition used when pushing to git/opening a pull request inside the Agola installation with just one command like if they were running tests locally (without requiring a super powerful workstation).
+* Testable "Runs" (what is a CI/CD environment if you cannot test your changes to the Runs definitions?): use the same run definition but use a powerful [secrets and variables system](https://agola.io/doc/concepts/secrets_variables.html) to access different resources (environments, docker registries etc...).
 * Don't try to extend YAML to be a templating language but use a real templating language (as of now [jsonnet](https://jsonnet.org/)) to easily generate the run configuration without side effects.
 * An advanced permissions system (work in progress).
+* Dependency Caching to speed up tasks
 
 
 ## Runs
