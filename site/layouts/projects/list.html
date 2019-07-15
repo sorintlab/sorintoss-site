@@ -9,7 +9,8 @@
     {{ range $i, $page := .Pages }}
     {{ $even := modBool $i 2 }}
     <div class="row mb80">
-      <div class="service col-md-6 justify-content-center align-items-center d-md-none {{ if not $even }}d-md-flex{{ end }} ">
+      <div
+        class="service col-md-6 justify-content-center align-items-center d-md-none {{ if not $even }}d-md-flex{{ end }} ">
         <figure>
           <a href="{{ .Permalink }}" title="{{ .Title }}">
             <img src="{{ .Params.Image }}" class="" alt="{{ .Title }}" title="{{ .Title }}">
@@ -26,14 +27,30 @@
           <div class="project-summary mt16">{{ . | markdownify }}</div>
           {{ end }}
           <div class="mt16">
-            <a class="mt8 btn btn-primary" href="{{ .Params.githubURL }}" target="_blank">
+            {{ with .Params.githubURL }}
+            <a class="mt8 btn btn-primary" href="{{ . }}" target="_blank">
               <i class="icon fab fa-github align-middle mr8"></i>
               <span class="align-middle">View on GitHub</span>
             </a>
-            <a class="mt8 btn btn-primary" href="{{ .Params.gitterURL }}" target="_blank">
+            {{ end }}
+            {{ with .Params.gitterURL }}
+            <a class="mt8 btn btn-primary" href="{{ . }}" target="_blank">
               <i class="icon fab fa-gitter align-middle mr8"></i>
               <span class="align-middle">Get in touch on Gitter</span>
             </a>
+            {{ end }}
+            {{ with .Params.homeURL }}
+            <a class="mt8 btn btn-primary" href="{{ . }}" target="_blank">
+              <i class="icon fas fa-home align-middle mr8"></i>
+              <span class="align-middle">Home Page</span>
+            </a>
+            {{ end }}
+            {{ with .Params.discourseURL }}
+            <a class="mt8 btn btn-primary" href="{{ . }}" target="_blank">
+              <i class="icon fab fa-discourse align-middle mr8"></i>
+              <span class="align-middle">Community Forum</span>
+            </a>
+            {{ end }}
           </div>
         </section>
       </div>
@@ -67,10 +84,10 @@
         </div>
         <h5 class="my16 font-weight-bold text-uppercase">{{ .name }}</h5>
         <p class="my16">{{ .summary }}</h5>
-        </div>
-        {{ end }}
       </div>
+      {{ end }}
     </div>
-    {{ end }}
-  </section>
+  </div>
   {{ end }}
+</section>
+{{ end }}

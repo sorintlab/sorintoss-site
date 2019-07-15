@@ -1,14 +1,14 @@
 <section class="home-projects">
   <div class="container">
     <h3 class="text-center font-weight-bold mb24">Our Projects</h3>
-    <div class="row align-items-center">
+    <div class="row">
       {{ range $index, $page := (where .Site.RegularPages "Type" "projects").ByWeight }}
-      <div class="col-md-6 mb-5 mb-md-0">
+      <div class="col-md-6 mb-5">
         <div class="row">
-          <figure class="col-md-6">
+          <figure class="col-md-6 align-self-center">
             <!-- <a href="{{ .Permalink }}" title="{{ .Title }}"> -->
             <a href="{{ .CurrentSection.Permalink }}" title="{{ .Title }}">
-              <img src="{{ .Params.Image }}" class="home-project-img" alt="{{ .Title }}" title="{{ .Title }}">
+              <img src="{{ .Params.Image }}" alt="{{ .Title }}" title="{{ .Title }}">
             </a>
           </figure>
           <div class="col-md-6">
@@ -18,13 +18,9 @@
               <p class="font-weight-bold">{{ .Title }}</p>
             </div>
             <div class="home-project-description mb-2 mb-md-3">{{ printf "%s" .Params.description | markdownify }}</div>
-            <div class="row">
-              <div class="mt16 col">
-                <a class="btn btn-primary" href="{{ .CurrentSection.Permalink }}">
-                  <span class="align-middle">Learn More</span>
-                </a>
-              </div>
-            </div>
+            <a class="btn btn-primary" href="{{ .CurrentSection.Permalink }}">
+              <span>Learn More</span>
+            </a>
           </div>
         </div>
       </div>
