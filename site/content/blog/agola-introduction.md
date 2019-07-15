@@ -14,15 +14,15 @@ categories:
 
 ![](https://agola.io/screenshots/screenshot_run_01.png)
 
-There're many CI/CD tools outside, some are available only as SaaS (and many are free for Open Source projects but some of them are closed source), others are open source and you can install them where you want. So: why another CI/CD tool?
+There're many CI/CD tools outside, some of them are available only as SaaS (and many are free for Open Source projects but some of them are closed source), others are open source and you can install them wherever you want. So: why another CI/CD tool?
 
-At [Sorint.lab](https://www.sorint.it) we used many different CI/CD tools for years, our Open Source projects usually use free SaaS tools, internally and from our customer we used Open Source tools installed on premise. So, in the years, we got a great deal of knowledge on many CI/CD tools and learned many of their pros and cons. In the end we always struggled to achieve some features that we considered very important for such kind of tools . That's why we created our own tool: Agola.
+At [Sorint.lab](https://www.sorint.it) we used many different CI/CD tools for years, our Open Source projects usually use free SaaS tools, internally and from our customer we used Open Source tools installed on premise. So, in the years, we got a great deal of knowledge on many CI/CD tools and learned many of their pros and cons. In the end we always struggled to achieve some features that we considered very important for such kind of tools. That's why we created our own tool: Agola.
 
 What are the requirements we tried to satisfy while designing and writing Agola?
 
 * Easy to install and manage.
 * Scalable and High Available: go from a single instance (single process) deployment to a distributed deployment.
-* Deploy anywhere: Kubernetes, IaaS, bare metal and execute the "tasks" anywhere (currently containers executors like docker and Kubernetes, but easily extensible to future technologies or VMs instead of containers).
+* Deploy anywhere: Kubernetes, IaaS, bare metal and execute the "tasks" anywhere (currently containers executors like docker or orchestrators and Kubernetes, but easily extensible to future technologies or VMs instead of containers).
 * Support any language, deployment system etc... (just use the right image)
 * Integrate with multiple git providers at the same time: you could add repos from github, gitlab, gitea (and more to come) inside the same agola installation.
 * Use it to manage the full development lifecycle: from build to deploy.
@@ -52,7 +52,8 @@ If you want to deploy to production when pushing to master new commits or tags, 
 
 Agola is young but a big and ambitious project. In the next weeks we'll create more posts detailing its internals and architectural peculiarities.
 
-Just as a small taste, Agola is composed of [multiple services](https://agola.io/doc/architecture/) and it's extensible by writing new service on top of its base services APIs (no old style plugins!). To be fully distributed and high available some if its services uses two primary components:
+Just as a small taste, Agola is composed of [multiple services](https://agola.io/doc/architecture/) and it's extensible by writing new service on top of its base services APIs (no old style plugins!). To be fully distributed and high available some if its services use two primary components:
+
 * [etcd](https://github.com/etcd-io/etc) to coordinate multiple instances (in many ways)
 * An object storage (as of today a shared posix fs like nfs, cephfs or an s3 like compatible storage)
 
@@ -62,12 +63,12 @@ A good thing of developing something new is that you can try to do something dif
 
 Since we want a fully distributed and high available system we wanted to rely only on components that could be fully distributed and high available: etcd and an object storage meet these requirements. So, instead of adding a third component that will increase the project requirements and that is, as of today, difficult to scale and made high available (ok there are some products that can achieve this like [cockroachdb](https://www.cockroachlabs.com/)) and be free to structure our data as we preferred, we tried to achieve a atomic, consistent, isolated and transactional store using etcd and an object storage.
 
-In this way everything is managed at the application level without putting part of the logic inside the relation database (constraints, foreign keys etc...) or relying on features that are available only on some products. But this is a big argument (and an experiment that could change or prove it wrong) that we'd like to elaborate in a future post (an hint: we are not ditching relation databases, if you look at the agola code you'll find a package called readdb that uses sqlite: yes we are using a **per instance/local**, **rebuildable**, **subject to a lot of schema changes** relational database as a read only database for queries).
+In this way everything is managed at the application level without putting part of the logic inside the relational database (constraints, foreign keys etc...) or relying on features that are available only on some products. But this is a big argument (and an experiment that could change or prove it wrong) that we'd like to elaborate in a future post (an hint: we are not ditching relational databases, if you look at the agola code you'll find a package called readdb that uses sqlite: yes we are using a **per instance/local**, **rebuildable**, **subject to a lot of schema changes** relational database as a read only database for queries).
 
 
 ## Try it
 
-Just try [the agola demo](https://agola.io/tryit/) and see how we are using it to [build/test agola](https://github.com/agola/agola/blob/master/.agola/config.jsonnet)
+Just try [the agola demo](https://agola.io/tryit/) and see how we are using it to [build/test agola](https://github.com/agola-io/agola/blob/master/.agola/config.jsonnet)
 
 The Agola documentation with various examples is in the [Agola web site](https://agola.io)
 
