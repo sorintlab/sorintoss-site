@@ -6,6 +6,10 @@ blackfriday:
   hrefTargetBlank: true
   fractions: false
 
+pygmentsCodefences: true
+pygmentsStyle: dracula
+pygmentsOptions: "linenos=table"
+
 menu:
   main:
     - name: "About"
