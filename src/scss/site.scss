@@ -1,9 +1,9 @@
-@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+@import url("https://fonts.googleapis.com/css?family=Open+Sans");
 
 $theme-colors: (
   "primary": #00abee,
   "secondary": #fabf07,
-  "danger": #ff4136,
+  "danger": #ff4136
 );
 
 @import "node_modules/bootstrap/scss/bootstrap";
@@ -37,7 +37,7 @@ img {
 }
 
 .navbar-wrapper {
-  border-bottom: 0.1px solid #CCCCCC;
+  border-bottom: 0.1px solid #cccccc;
 }
 
 .navbar .social a,
@@ -52,7 +52,6 @@ img {
 .navbar .social a:hover {
   color: #000;
 }
-
 
 .brand-img {
   height: 40px;
@@ -162,7 +161,6 @@ footer .end {
   height: 22px;
   width: 22px;
   vertical-align: middle;
-
 }
 
 .icon-list ul li {
@@ -230,7 +228,7 @@ footer .end {
   font-weight: bold;
 }
 
-.post-title:hover{
+.post-title:hover {
   text-decoration: none;
 }
 
@@ -296,6 +294,19 @@ ul.tag-cloud li a {
   font-size: 0.8rem;
 }
 
+.post h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+
+.post .highlight {
+  margin-bottom: 2rem;
+}
 
 .share-btn {
   color: #ffffff;
@@ -317,27 +328,55 @@ ul.tag-cloud li a {
   top: 2px;
 }
 
-.share-btn.twitter     { background: #55acee; }
-.share-btn.google-plus { background: #dd4b39; }
-.share-btn.facebook    { background: #3B5998; }
-.share-btn.linkedin    { background: #4875B4; }
-.share-btn.stumbleupon { background: #EB4823; }
-.share-btn.pinterest	 { background: #BD081C; }
-.share-btn.reddit      { background: #ff5700; }
-.share-btn.email       { background: #444444; }
+.share-btn.twitter {
+  background: #55acee;
+}
+.share-btn.google-plus {
+  background: #dd4b39;
+}
+.share-btn.facebook {
+  background: #3b5998;
+}
+.share-btn.linkedin {
+  background: #4875b4;
+}
+.share-btn.stumbleupon {
+  background: #eb4823;
+}
+.share-btn.pinterest {
+  background: #bd081c;
+}
+.share-btn.reddit {
+  background: #ff5700;
+}
+.share-btn.email {
+  background: #444444;
+}
 
-.share-btn.twitter:hover     { background: #4c9ad6; }
-.share-btn.google-plus:hover { background: #c64333; }
-.share-btn.facebook:hover    { background: #2f4779; }
-.share-btn.linkedin:hover    { background: #4069a2; }
-.share-btn.stumbleupon:hover { background: #d3401f; }
-.share-btn.pinterest:hover   { background: #AD0000; }
-.share-btn.reddit:hover      { background: #e54e00; }
-.share-btn.email:hover       { background: #363636; }
-
-
-
-
+.share-btn.twitter:hover {
+  background: #4c9ad6;
+}
+.share-btn.google-plus:hover {
+  background: #c64333;
+}
+.share-btn.facebook:hover {
+  background: #2f4779;
+}
+.share-btn.linkedin:hover {
+  background: #4069a2;
+}
+.share-btn.stumbleupon:hover {
+  background: #d3401f;
+}
+.share-btn.pinterest:hover {
+  background: #ad0000;
+}
+.share-btn.reddit:hover {
+  background: #e54e00;
+}
+.share-btn.email:hover {
+  background: #363636;
+}
 
 //////
 
@@ -381,18 +420,17 @@ ul.tag-cloud li a {
   max-height: 20em;
 }
 
-
 $spaces: (
-8: 8px,
-16: 16px,
-24: 24px,
-32: 32px,
-40: 40px,
-48: 48px,
-56: 56px,
-64: 64px,
-72: 72px,
-80: 80px,
+  8: 8px,
+  16: 16px,
+  24: 24px,
+  32: 32px,
+  40: 40px,
+  48: 48px,
+  56: 56px,
+  64: 64px,
+  72: 72px,
+  80: 80px
 );
 
 @each $breakpoint in map-keys($grid-breakpoints) {
@@ -401,12 +439,14 @@ $spaces: (
 
     $ninfix: $infix;
     @if $infix != "" {
-      $ninfix: $infix + "-"
+      $ninfix: $infix + "-";
     }
 
     @each $prop, $abbrev in (margin: m, padding: p) {
       @each $size, $length in $spaces {
-        .#{$abbrev}#{$ninfix}#{$size} { #{$prop}: $length !important; }
+        .#{$abbrev}#{$ninfix}#{$size} {
+          #{$prop}: $length !important;
+        }
         .#{$abbrev}t#{$ninfix}#{$size},
         .#{$abbrev}y#{$ninfix}#{$size} {
           #{$prop}-top: $length !important;
@@ -427,7 +467,9 @@ $spaces: (
     }
 
     // Some special margin utils
-    .m#{$infix}-auto { margin: auto !important; }
+    .m#{$infix}-auto {
+      margin: auto !important;
+    }
     .mt#{$infix}-auto,
     .my#{$infix}-auto {
       margin-top: auto !important;
