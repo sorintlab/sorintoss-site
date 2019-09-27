@@ -1,11 +1,29 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   {{ partial "head" . }}
   <body id="page-top" class="index">
     {{ partial "nav" . }}
-    {{ block "main" . }}{{ end }} 
-    {{ partial "footer" . }} 
+    {{ block "main" . }}{{ end }}
+    {{ partial "footer" . }}
 
     {{ partial "js" . }}
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.js"
+      data-cfasync="false"
+    ></script>
+    <script>
+      window.cookieconsent.initialise({
+        palette: {
+          popup: {
+            background: "#00abee"
+          },
+          button: {
+            background: "#fabf07"
+          }
+        },
+        theme: "classic"
+      });
+    </script>
   </body>
 </html>
