@@ -6,15 +6,13 @@
       {{ .Content }}
     </div>
 
-    {{ range $i, $page := .Pages }}
+    {{ range $i, $page := .Pages.ByWeight }}
     {{ $even := modBool $i 2 }}
     <div class="row mb80">
       <div
         class="service col-md-6 justify-content-center align-items-center d-md-none {{ if not $even }}d-md-flex{{ end }} ">
         <figure>
-          <a href="{{ .Permalink }}" title="{{ .Title }}">
-            <img src="{{ .Params.Image }}" class="" alt="{{ .Title }}" title="{{ .Title }}">
-          </a>
+          <img src="{{ .Params.Image }}" class="" alt="{{ .Title }}" title="{{ .Title }}">
         </figure>
       </div>
       <div class="service col-md-6">
@@ -25,6 +23,11 @@
           {{ end }}
           {{ with .Params.summary }}
           <div class="project-summary mt16">{{ . | markdownify }}</div>
+          {{ end }}
+          {{ with .Params.githubRepo }}
+          <div class="mt-4">
+            <a class="github-button" href="https://github.com/{{ . }}" data-icon="octicon-star" data-size="large" data-show-count="true" aria-label="Star {{ . }} on GitHub">Star</a>
+          </div>
           {{ end }}
           <div class="mt16">
             {{ with .Params.githubURL }}
@@ -56,9 +59,7 @@
       </div>
       <div class="service col-md-6 justify-content-center align-items-center d-none {{ if $even }}d-md-flex{{ end }}">
         <figure>
-          <a href="{{ .Permalink }}" title="{{ .Title }}">
-            <img src="{{ .Params.Image }}" class="project-img" alt="{{ .Title }}" title="{{ .Title }}">
-          </a>
+          <img src="{{ .Params.Image }}" class="project-img" alt="{{ .Title }}" title="{{ .Title }}">
         </figure>
       </div>
     </div>
