@@ -8,5 +8,5 @@ image: /img/stolon-color.png
 weight: 20
 githubRepo: "sorintlab/stolon"
 githubURL: https://github.com/sorintlab/stolon
-gitterURL: https://gitter.im/sorintlab/stolon
+discourseURL: https://talk.stolon.io
 ---
