@@ -9,4 +9,5 @@ weight: 30
 githubRepo: "SYNwall/SYNwall"
 githubURL: https://github.com/SYNwall/SYNwall
 homeURL: https://synwall.io
+gitterURL: https://gitter.im/SYNwall-random/community
 ---
