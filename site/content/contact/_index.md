@@ -67,6 +67,14 @@ internationalOffices:
       registeredOffice:
       - 600 B Street #2300
       - San Diego, CA
+  - country: France
+    offices:
+    - name: Sorint.lab FR SARL
+      location:
+        - 18 rue Pasquier
+        - 70008 Paris
+      phone: +33 1 70382359
+
 
 businessUnits:
 - name: Sorint.sec
