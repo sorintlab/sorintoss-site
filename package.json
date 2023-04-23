@@ -33,7 +33,7 @@
     "@fortawesome/fontawesome-free-webfonts": "^1.0.3",
     "animate.css": "^3.6.1",
     "bootstrap": "^4.3.1",
-    "browser-sync": "^2.26.7",
+    "browser-sync": "^2.29.1",
     "jquery": "^3.4.1",
     "netlify-cms": "^2.9.5",
     "owl.carousel": "^2.2.0",
