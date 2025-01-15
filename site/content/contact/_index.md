@@ -71,8 +71,8 @@ internationalOffices:
     offices:
     - name: Sorint.lab FR SARL
       location:
-        - 18 rue Pasquier
-        - 75008 Paris
+        - 140 B Rue de Rennes
+        - 75006 Paris
       phone: +33 1 70382359
 
 
